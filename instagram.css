@@ -1,3 +1,13 @@
+.header > img:hover {
+  opacity: 50%;
+  cursor: pointer;
+}
+
+.button-container > img:hover {
+  opacity: 50%;
+  cursor: pointer;
+}
+
 .header .logo {
   width: 110px;
   height: 30px;
@@ -43,6 +53,8 @@
   flex-direction: column;
   width: 700px;
   margin: auto;
+  /* position: relative; <- this thing makes scroll*/
+  overflow-x: hidden;
 }
 
 .header {
@@ -102,7 +114,7 @@
   cursor: pointer;
 }
 
-.story-container .story {
+.story {
   width: 40px;
   height: 40px;
   border: 2px solid orange;
@@ -122,6 +134,7 @@
   width: 60%;
   margin: 10px auto;
   border: 2px solid #d3d3d3;
+  position: relative;
 }
 
 .button-container {
@@ -168,4 +181,210 @@
 
 .comment-button:hover {
   cursor: pointer;
+}
+
+.story-modal {
+  display: none; /* 모달창 숨겨 놓기 */
+  position: fixed;
+  z-index: 1; /* 모달창을 제일 앞에 두기 */
+  padding-top: 100px;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto; /* 스크롤 허용 auto */
+  cursor: pointer; /* 마우스 손가락모양 */
+  background-color: rgba(0, 0, 0, 0.8); /* 0.8은 투명도*/
+}
+
+#story-image {
+  border-radius: 20px;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%); /* 모달 가운데에 놓기 */
+}
+
+#profile-modal {
+  position: absolute;
+	display: none;
+  width: 325px;
+  height: 250px;
+}
+
+#like-count-text {
+  padding: 5px 0 5px 10px;
+  border-bottom: 2px solid #d3d3d3;
+  font-size: 14px;
+  position: relative;
+}
+
+#like-count {
+  font-weight: bold;
+}
+
+#liked-btn {
+  display: none;
+  max-width: 26px;
+  margin-left: 10px;
+  margin-right: 7px;
+}
+
+#liked-btn:hover {
+  cursor: pointer;
+}
+
+.comment {
+  color: rgba(0, 0, 0, 0.5);
+  font-weight: 600;
+}
+
+.comment-wrapper:hover > .comment-delete-icon {
+  display: block;
+}
+
+.comment-delete-icon {
+  width: 12px;
+  height: 12px;
+  cursor: pointer;
+  display: none;
+}
+
+.footer-message {
+  display: flex;
+  justify-content: center;
+  color: gray;
+  font-size: 15px;
+}
+
+.side-menu {
+  display: none;
+  position: absolute;
+  width: 396px;
+  height: 100%;
+  background-color: white;
+  top:0px;
+  right:0px;
+  box-sizing: border-box;
+  z-index: 2;
+  border: 0.5px solid black;
+  border-radius : 10px;
+}
+
+.side-menu > h2,
+.side-menu > h3 {
+  margin-left : 5%;
+}
+
+.side-menu > ul {
+  box-sizing: border-box;
+  width: 100%;
+  height: 60px;
+  list-style-type: none;
+  display: flex;
+  flex-direction: column;
+  padding: 5px;
+  /* border: 1px solid #ccc; */
+  border-radius: 5px;
+}
+
+.side-menu > ul > li {
+  display: flex;
+  flex-direction: row ;
+  margin-bottom: 20px;
+  padding-right: 5px;
+  padding-left: 5px;
+}
+
+.notification img {
+  width: 50px;
+  height: 50px;
+  margin-right: 10px;
+  border-radius: 50%;
+}
+
+.follower-content {
+  flex: 1;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.follower-message {
+  padding-right : 10px;
+  width : 230px;
+}
+
+.follower-message > .past-weeks {
+  color :rgba(50, 50, 93, 0.5);
+}
+
+.follow-buttons {
+  background-color: #3498db;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: 7px 16px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  width: 80px;
+  height: 32px;
+}
+
+.follow-buttons:hover {
+  background-color: #2980b9;
+}
+
+@keyframes mySlide {
+  from {
+    right: -300px;
+    opacity: 0;
+  }
+  to {
+    right: 0px;
+    opacity: 1;
+  }
+  
+}
+
+@keyframes myDisappear {
+  from {
+    right: 0px;
+    opacity: 1;
+  }
+  to {
+    right: -300px;
+    opacity: 0;
+  }
+}
+
+.emoji-container {
+  color: white;
+  width: 280px;
+  height: 90px;
+  border-radius: 15px;
+  border: 1px solid black;
+  margin: auto;
+  display: none;
+  flex-direction: column;
+  padding: 10px;
+  background-color: #323232;
+  position: absolute;
+  top: 235px;
+  left: 3px;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px,
+ rgba(0, 0, 0, 0.3) 0px 30px 60px -30px,
+ rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+}
+
+#emojis {
+  display: flex;
+  flex-flow: row wrap;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.emoji:hover {
+  cursor:pointer;
 }
